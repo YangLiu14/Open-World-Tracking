@@ -1,0 +1,52 @@
+data:
+  name: TAO  # name of the dataset.
+  image_dir: ./images  # Directory containing the images of the dataset.
+  # Example folder structure of TAO images:
+  """
+  image_dir/
+    ArgoVerse/
+      video1/
+        frame1.jpg
+        frame2.jpg
+        ...
+      video2/
+    BDD/
+    ...
+  """
+  # The following `*_dir`s are assumed to have the similar folder structure.
+
+  props_dir: ./proposals  # Directory storing the proposals (per frame).
+  ftype: npz  # File type of the proposals stored in each frame, usually it's either `json` or `npz`
+
+  # Directory containing the pre-computing optical flow vectors.
+  # Give `null` if not using optical-flow-based similarity function
+  opt_flow_dir: ./opt_flow
+  datasplit: train  # Data split: train, val or test
+  outdir: ./output  # Directory where the tracking results will be stored.
+
+tracker:
+  # Similarity function to use for data association between contiguous frames.
+  # Available similarity functions are:
+  # bbox_iou, mask_iou, optical_flow, reid, mix
+  similarity: mix
+
+  # Non overlap strategies:
+  # "score" assigns overlapping pixels to masks with higher scores
+  # "area" assigns overlapping pixel to masks with smaller area
+  non_overlap: score
+
+  # Scoring strategies to sore proposals (per frame), available choices are:
+  # score, bg_score, one_minus_bg_score, objectness, bg_obj_sum, bg_obj_prod
+  scoring: objectness
+  offline: False  # After online tracking, whether to perform an offline optimization for the tracks.
+  hungarian_threshold: 0.1  # Threshold for the Hungarian-Matching algorithm.
+
+  # Keep discontinued tracklets alive for n_frames.
+  # Only set this when your tracking algorithm involves online-ghost tracking
+  ka_frames: 1
+
+  # Pre-merging strategy - only for offline tracker:
+  # specifies which online tracker to use to generate tracklets
+  # that connects proposals between contiguous frames.
+  # In current implementation we provide ['online', 'online-ghost']
+  pre_merge: 'online'
