@@ -1,6 +1,7 @@
 # Proposal Generation
 
-We adapt **detectron2** to generate per-frame proposals. (Code will be published soon)
+We adapt **detectron2** to generate per-frame proposals. 
+Please visit https://github.com/YangLiu14/detectron2-OWT
 
 Each proposal we generate contains the following information:
 

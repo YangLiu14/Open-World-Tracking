@@ -1,5 +1,5 @@
 # Open-World-Tracking
-Official code for "Opening up Open-World Tracking" (CVPR 2022)
+Official code for "Opening up Open-World Tracking" (CVPR 2022 Oral) [Project Page](https://openworldtracking.github.io/)
 
 ![teaser](assets/teaser.png)
 
@@ -12,5 +12,4 @@ For evaluation code, please visit [link](https://github.com/JonathonLuiten/Track
 <pre><b>Opening up Open-World Tracking</b>
 Yang Liu*, Idil Esen Zulfikar*, Jonathon Luiten*, Achal Dave*, Deva Ramanan, Bastian Leibe, Aljoša Ošep, Laura Leal-Taixé
 <t><t>*Equal contribution
-CVPR 2022</pre>
-
+CVPR 2022 Oral</pre>
