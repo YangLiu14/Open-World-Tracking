@@ -1,8 +1,9 @@
-import cv2
 import logging
-import numpy as np
 import os
 import os.path as osp
+
+import cv2
+import numpy as np
 import png as pypng
 import torch
 import tqdm
