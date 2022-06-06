@@ -1,5 +1,7 @@
 # Open-World-Tracking
-Official code for "Opening up Open-World Tracking" (CVPR 2022 Oral) [Project Page](https://openworldtracking.github.io/)
+Official code for "Opening up Open-World Tracking" (CVPR 2022 Oral) 
+
+[Project Page](https://openworldtracking.github.io/)
 
 ![teaser](assets/teaser.png)
 
