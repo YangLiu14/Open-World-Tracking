@@ -17,4 +17,6 @@ Give the information of your pre-processing proposals in `configs/example_tracke
 ```shell
 python nonoverlap_track.py --tracker online-ghost --config ./configs/example_tracker.yaml
 ```
+The configs set in `configs/example_tracker.yaml` is able to reproduce the OWTB (Open World Tracking Baseline) 
+tracking results as shown in the paper. 
 

@@ -36,9 +36,9 @@ tracker:
   non_overlap: score
 
   # Scoring strategies to sore proposals (per frame), available choices are:
-  # score, bg_score, one_minus_bg_score, objectness, bg_obj_sum, bg_obj_prod
+  # [score, bg_score, one_minus_bg_score, objectness, bg_obj_sum, bg_obj_prod]
   scoring: objectness
-  offline: False  # After online tracking, whether to perform an offline optimization for the tracks.
+  offline: True  # After online tracking, whether to perform an offline optimization for the tracks.
   hungarian_threshold: 0.1  # Threshold for the Hungarian-Matching algorithm.
 
   # Keep discontinued tracklets alive for n_frames.

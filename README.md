@@ -14,6 +14,13 @@ Yang Liu*, Idil Esen Zulfikar*, Jonathon Luiten*, Achal Dave*, Deva Ramanan, Bas
 <t><t>*Equal contribution
 CVPR 2022 Oral</pre>
 
+## 1. Dependencies
+- Python >= 3.6
+- PyTorch==1.5
+- detectron2 installation, see [this](https://github.com/YangLiu14/detectron2-OWT)
+
+You can also check `requirements.txt` for more details.
+
 
 ## 2. Data and Models
 
@@ -21,14 +28,14 @@ CVPR 2022 Oral</pre>
 We use TAO as our base dataset, so please follow the instructions [here](https://motchallenge.net/tao_download.php) 
 to download the raw data and the labels.
 
-### Known and unknown split
+### Known and Unknown Split
 As stated in the paper, we use COCO-classes as known, you can find the mapping between
 `coco_id` to `tao_id` in `datasets/coco_id2tao_id.json`.
 Keeping the default folder structure is fine.
 
 
 
-To get the known/unknownz ids in TAO:
+To get the known/unknown ids in TAO:
 ```python
 import json
 

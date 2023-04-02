@@ -3,6 +3,10 @@
 We adapt **detectron2** to generate per-frame proposals. 
 Please visit https://github.com/YangLiu14/detectron2-OWT
 
+We use **Panoptic FPN R101** (config and weights listed in the 
+[detectron2-OWT](https://github.com/YangLiu14/detectron2-OWT) page) to generate 
+proposals that are used in our experiment.
+
 Each proposal we generate contains the following information:
 
 - `bbox`: [x1, y1, x2, y2]
@@ -13,8 +17,36 @@ Each proposal we generate contains the following information:
 - `category_id`
 - `embeddings`: 1x1024 vector, extracted from the FC-layers in the very last part of Mask RCNN. This serves as **apperance embeddings**. Originally, each value in the vector is in the range of [0, 1]. To save storage space, we multiply each value by `1e4`, and convert to `uint16`. When using the embeddings, it is suggested to divide the vector by `1e4` to obtain values between [0, 1].
 
- ## Evaluation
- ### Recall Analysis
+## Generate Proposals
+```shell
+git clone https://github.com/YangLiu14/detectron2-OWT
+cd detectron2-OWT
+```
+#### Generate proposals for each frame (valid set)
+```shell
+python owt_scripts/gen_proposals.py \
+  --config-file ../configs/Misc/owt/panoptic_fpn_R_101_dconv_cascade_gn_3x.yaml \
+  --input /data/TAO/frames/val/ \   # give your own path
+  --outdir /proposals/val/npz/ \    # give your own path
+  --split val \
+  --opts MODEL.WEIGHTS /model_weights/Panoptic_FPN_R101/model_final_be35db.pkl
+```
+
+#### Generate proposals only for annotated frames (skipping frames)
+```shell
+python owt_scripts/gen_proposals.py \
+  --config-file ../configs/Misc/owt/panoptic_fpn_R_101_dconv_cascade_gn_3x.yaml \
+  --input /data/TAO/frames/val/ \   # give your own path
+  --outdir /proposals/val/npz/ \    # give your own path
+  --split val --annot-only \
+  --opts MODEL.WEIGHTS /model_weights/Panoptic_FPN_R101/model_final_be35db.pkl
+```
+
+More details can be found in [detectron2-OWT](https://github.com/YangLiu14/detectron2-OWT)
+
+
+## Evaluation
+### Recall Analysis
 `eval_recall_vs_props.py`
  
 All the proposals (per frame) are sorted by different scorings (objectness, background-score, etc.). 
