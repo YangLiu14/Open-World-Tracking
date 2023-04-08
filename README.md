@@ -15,9 +15,10 @@ Yang Liu*, Idil Esen Zulfikar*, Jonathon Luiten*, Achal Dave*, Deva Ramanan, Bas
 CVPR 2022 Oral</pre>
 
 ## 1. Dependencies
-- Python >= 3.6
-- PyTorch==1.5
+- Python >= 3.7
+- PyTorch==1.9.1
 - detectron2 installation, see [this](https://github.com/YangLiu14/detectron2-OWT)
+- tested on CUDA=11.1
 
 You can also check `requirements.txt` for more details.
 
